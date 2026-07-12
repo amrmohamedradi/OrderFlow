@@ -1,0 +1,11 @@
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\bin\Debug\net10.0\OrderFlow.OrderService.Domain.deps.json
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\bin\Debug\net10.0\OrderFlow.OrderService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\bin\Debug\net10.0\OrderFlow.OrderService.Domain.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.AssemblyInfoInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.AssemblyInfo.cs
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\refint\OrderFlow.OrderService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\ref\OrderFlow.OrderService.Domain.dll

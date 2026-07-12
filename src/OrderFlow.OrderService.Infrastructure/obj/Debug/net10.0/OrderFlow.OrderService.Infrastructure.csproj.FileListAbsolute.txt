@@ -1,0 +1,17 @@
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Infrastructure.deps.json
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Infrastructure.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Infrastructure.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Application.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Application.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Domain.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.AssemblyInfo.cs
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlo.3F6528AD.Up2Date
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\refint\OrderFlow.OrderService.Infrastructure.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\ref\OrderFlow.OrderService.Infrastructure.dll
