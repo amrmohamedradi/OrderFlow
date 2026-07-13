@@ -1,0 +1,12 @@
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\bin\Debug\net10.0\OrderFlow.NotificationService.Domain.deps.json
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\bin\Debug\net10.0\OrderFlow.NotificationService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\bin\Debug\net10.0\OrderFlow.NotificationService.Domain.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.AssemblyInfoInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.AssemblyInfo.cs
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.sourcelink.json
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\refint\OrderFlow.NotificationService.Domain.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\OrderFlow.NotificationService.Domain.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\NotificationService\OrderFlow.NotificationService.Domain\obj\Debug\net10.0\ref\OrderFlow.NotificationService.Domain.dll

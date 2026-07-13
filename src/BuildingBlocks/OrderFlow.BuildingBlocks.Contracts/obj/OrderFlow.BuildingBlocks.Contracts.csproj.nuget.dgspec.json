@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj": {}
+    "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj": {
+    "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj",
+        "projectUniqueName": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj",
         "projectName": "OrderFlow.BuildingBlocks.Contracts",
-        "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj",
+        "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj",
         "packagesPath": "C:\\Users\\Amr Radi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\obj\\",
+        "outputPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

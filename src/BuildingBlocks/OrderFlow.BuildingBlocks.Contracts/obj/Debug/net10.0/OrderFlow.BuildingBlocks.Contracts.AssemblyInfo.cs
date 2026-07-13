@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrderFlow.BuildingBlocks.Contracts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d57c942570a042151cbaf13994b59e4af71ca4c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e99216b64a06e7f0b93146daa3fdab12d02444b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrderFlow.BuildingBlocks.Contracts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrderFlow.BuildingBlocks.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
