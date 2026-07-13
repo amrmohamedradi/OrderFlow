@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "jT22NDjpeho=",
+  "dgSpecHash": "ytkpiCM4evk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj",
+  "projectFilePath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amr Radi\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\Amr Radi\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\mediatr\\14.2.0\\mediatr.14.2.0.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",

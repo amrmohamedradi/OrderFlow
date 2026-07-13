@@ -13,3 +13,4 @@ C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Application\obj\D
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Application\obj\Debug\net10.0\refint\OrderFlow.OrderService.Application.dll
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Application\obj\Debug\net10.0\OrderFlow.OrderService.Application.pdb
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Application\obj\Debug\net10.0\ref\OrderFlow.OrderService.Application.dll
+c:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Application\obj\Debug\net10.0\OrderFlow.OrderService.Application.sourcelink.json

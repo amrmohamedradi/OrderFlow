@@ -15,3 +15,6 @@ C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\ob
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\refint\OrderFlow.OrderService.Infrastructure.dll
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.pdb
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\ref\OrderFlow.OrderService.Infrastructure.dll
+c:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.OrderService.Infrastructure.runtimeconfig.json
+c:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.sourcelink.json
+c:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\OrderFlow.OrderService.Infrastructure.genruntimeconfig.cache

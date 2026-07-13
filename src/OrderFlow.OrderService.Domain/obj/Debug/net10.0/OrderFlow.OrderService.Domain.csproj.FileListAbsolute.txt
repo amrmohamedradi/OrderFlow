@@ -9,3 +9,4 @@ C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\refint\OrderFlow.OrderService.Domain.dll
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.pdb
 C:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\ref\OrderFlow.OrderService.Domain.dll
+c:\Users\Amr Radi\Desktop\OrderFlow\src\OrderFlow.OrderService.Domain\obj\Debug\net10.0\OrderFlow.OrderService.Domain.sourcelink.json
