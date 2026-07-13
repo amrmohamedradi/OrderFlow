@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KwuO7/wr2Bc=",
+  "dgSpecHash": "J8aBHhErzTQ=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

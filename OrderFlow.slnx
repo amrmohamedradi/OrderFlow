@@ -1,6 +1,11 @@
 <Solution>
-  <Folder Name="/src/" />
   <Folder Name="/src/BuildingBlocks/">
     <Project Path="src/BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/OrderFlow.BuildingBlocks.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/">
+    <Project Path="src/Services/OrderFlow.OrderService.API/OrderFlow.OrderService.API.csproj" />
+    <Project Path="src/Services/OrderFlow.OrderService.Application/OrderFlow.OrderService.Application.csproj" />
+    <Project Path="src/Services/OrderFlow.OrderService.Domain/OrderFlow.OrderService.Domain.csproj" />
+    <Project Path="src/Services/OrderFlow.OrderService.Infrastructure/OrderFlow.OrderService.Infrastructure.csproj" />
   </Folder>
 </Solution>

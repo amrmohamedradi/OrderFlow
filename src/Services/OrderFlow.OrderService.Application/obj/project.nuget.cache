@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ytkpiCM4evk=",
+  "dgSpecHash": "NLf+iK/Z+Xk=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj",
+  "projectFilePath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amr Radi\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",

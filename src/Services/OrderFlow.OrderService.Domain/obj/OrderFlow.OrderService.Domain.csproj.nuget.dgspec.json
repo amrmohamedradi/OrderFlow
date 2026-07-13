@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj": {}
+    "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj": {
+    "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj",
         "projectName": "OrderFlow.OrderService.Domain",
-        "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj",
+        "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj",
         "packagesPath": "C:\\Users\\Amr Radi\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

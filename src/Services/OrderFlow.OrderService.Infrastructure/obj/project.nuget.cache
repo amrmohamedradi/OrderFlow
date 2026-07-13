@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RyPHbkGhITc=",
+  "dgSpecHash": "fD/BIowVt+k=",
   "success": true,
-  "projectFilePath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amr Radi\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

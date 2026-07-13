@@ -1,0 +1,12 @@
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.deps.json
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.AssemblyInfoInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.AssemblyInfo.cs
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.sourcelink.json
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\refint\OrderFlow.BuildingBlocks.Contracts.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\BuildingBlocks\OrderFlow.BuildingBlocks.Contracts\obj\Debug\net10.0\ref\OrderFlow.BuildingBlocks.Contracts.dll
