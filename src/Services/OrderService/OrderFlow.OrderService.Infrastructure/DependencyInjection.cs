@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OrderFlow.OrderService.Application.Interfaces.Messaging;
 using OrderFlow.OrderService.Application.Interfaces.Persistence;
 using OrderFlow.OrderService.Application.Interfaces.Repositories;
+using OrderFlow.OrderService.Infrastructure.Messaging;
 using OrderFlow.OrderService.Infrastructure.Persistence;
 using OrderFlow.OrderService.Infrastructure.Repositories;
 
@@ -17,7 +19,9 @@ public static class DependencyInjection
         
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IEventPublisher, EventPublisher>();
         
         return services;
     }
 }
+

@@ -1,13 +1,63 @@
+version: '3.9'
 
 services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: orderflow-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourStrong@Pass123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
   rabbitmq:
     image: rabbitmq:3-management
     container_name: orderflow-rabbitmq
-
     ports:
       - "5672:5672"
       - "15672:15672"
 
+  orderservice:
+    container_name: orderflow-orderservice
+    build:
+      context: .
+      dockerfile: src/Services/OrderService/OrderFlow.OrderService.API/DockerFile
+    ports:
+      - "5001:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=OrderFlow_OrderService;User ID=sa;Password=YourStrong@Pass123;TrustServerCertificate=True;MultipleActiveResultSets=True"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
+
+  notificationservice:
+    container_name: orderflow-notificationservice
+    build:
+      context: .
+      dockerfile: src/Services/NotificationService/OrderFlow.NotificationService.API/DockerFile
+    ports:
+      - "5002:8080"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=OrderFlow_NotificationService;User ID=sa;Password=YourStrong@Pass123;TrustServerCertificate=True;MultipleActiveResultSets=True"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
+      Email__Host: sandbox.smtp.mailtrap.io
+      Email__Port: 2525
+      Email__UserName: 9af5d187fa4d43
+      Email__Password: 3420d87b479e87
+      Email__From: no-reply@orderflow.com
+
+volumes:
+  sqlserver_data:

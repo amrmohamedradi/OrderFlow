@@ -20,8 +20,8 @@ public class OrderCreateConsumer : IConsumer<OrderCreatedEvent>
     public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
     {
         _logger.LogInformation(
-            "Received OrderCreatedEvent. OrderId: {OrderId}, Email: {Email}",
-            context.Message.OrderId, context.Message.Email);
+            "Received OrderCreatedEvent. CorrelationId: {CorrelationId}, OrderId: {OrderId}, Email: {Email}",
+            context.CorrelationId, context.Message.OrderId, context.Message.Email);
 
         try
         {

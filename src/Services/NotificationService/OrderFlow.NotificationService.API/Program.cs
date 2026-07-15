@@ -1,8 +1,10 @@
 using OrderFlow.NotificationService.API.Common.Handlers;
 using OrderFlow.NotificationService.Application;
 using OrderFlow.NotificationService.Infrastructure;
+using OrderFlow.NotificationService.Infrastructure.Persistence;
 using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
 using OrderFlow.NotificationService.Application.Consumers;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -43,15 +45,37 @@ try
 
     var app = builder.Build();
 
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        var dbContext = services.GetRequiredService<NotificationDbContext>();
+        for (int i = 0; i < 20; i++)
+        {
+            try
+            {
+                logger.LogInformation("Applying migrations for NotificationService DbContext...");
+                dbContext.Database.Migrate();
+                logger.LogInformation("NotificationService database migrations applied successfully.");
+                break;
+            }
+            catch (Exception ex)
+            {
+                logger.LogWarning(ex, "An error occurred while migrating the database. Retrying in 5 seconds... (Attempt {Attempt}/20)", i + 1);
+                if (i == 19) throw;
+                System.Threading.Thread.Sleep(5000);
+            }
+        }
+    }
+
     app.UseSerilogRequestLogging();
 
     app.UseExceptionHandler();
 
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
+    
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    
 
     app.UseHttpsRedirection();
 

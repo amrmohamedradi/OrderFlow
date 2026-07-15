@@ -4,7 +4,7 @@ using OrderFlow.OrderService.Application.Interfaces.Persistence;
 using OrderFlow.OrderService.Domain.Entities;
 using OrderFlow.OrderService.Application.Interfaces.Repositories;
 using OrderFlow.BuildingBlocks.Contracts.Events;
-using MassTransit;
+using OrderFlow.OrderService.Application.Interfaces.Messaging;
 
 namespace OrderFlow.OrderService.Application.Features.Orders.Commands.CreateOrder;
 
@@ -12,18 +12,18 @@ public sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderComma
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IEventPublisher _eventPublisher;
     private readonly ILogger<CreateOrderCommandHandler> _logger;
 
     public CreateOrderCommandHandler(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
-        IPublishEndpoint publishEndpoint,
+        IEventPublisher eventPublisher,
         ILogger<CreateOrderCommandHandler> logger)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
-        _publishEndpoint = publishEndpoint;
+        _eventPublisher = eventPublisher;
         _logger = logger;
     }
 
@@ -41,7 +41,7 @@ public sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderComma
             "Order saved. OrderId: {OrderId}. Publishing OrderCreatedEvent...",
             order.Id);
 
-        await _publishEndpoint.Publish(
+        await _eventPublisher.PublishAsync(
             new OrderCreatedEvent(order.Id, order.CustomerName, order.Email, order.TotalPrice, order.CreatedAt),
             cancellationToken);
 

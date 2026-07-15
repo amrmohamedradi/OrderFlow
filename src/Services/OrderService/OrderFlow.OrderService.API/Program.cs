@@ -1,7 +1,9 @@
 using OrderFlow.OrderService.API.Common.Handlers;
 using OrderFlow.OrderService.Application;
 using OrderFlow.OrderService.Infrastructure;
+using OrderFlow.OrderService.Infrastructure.Persistence;
 using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -39,15 +41,36 @@ try
 
     var app = builder.Build();
 
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        var dbContext = services.GetRequiredService<OrderDbContext>();
+        for (int i = 0; i < 20; i++)
+        {
+            try
+            {
+                logger.LogInformation("Applying migrations for OrderService DbContext...");
+                dbContext.Database.Migrate();
+                logger.LogInformation("OrderService database migrations applied successfully.");
+                break;
+            }
+            catch (Exception ex)
+            {
+                logger.LogWarning(ex, "An error occurred while migrating the database. Retrying in 5 seconds... (Attempt {Attempt}/20)", i + 1);
+                if (i == 19) throw;
+                System.Threading.Thread.Sleep(5000);
+            }
+        }
+    }
+
     app.UseSerilogRequestLogging();
 
     app.UseExceptionHandler();
 
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
+    
+    app.UseSwagger();
+    app.UseSwaggerUI();
 
     app.UseHttpsRedirection();
 
