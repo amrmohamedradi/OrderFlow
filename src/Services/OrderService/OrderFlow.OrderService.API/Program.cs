@@ -37,7 +37,7 @@ try
 
     builder.Services.AddProblemDetails();
 
-    builder.Services.AddMessaging(builder.Configuration);
+    // builder.Services.AddMessaging(builder.Configuration);
 
     var app = builder.Build();
 

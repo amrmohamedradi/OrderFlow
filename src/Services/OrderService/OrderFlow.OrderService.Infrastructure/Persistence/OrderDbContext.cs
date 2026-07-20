@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OrderFlow.OrderService.Domain.Entities;
+using MassTransit;
 
 
 namespace OrderFlow.OrderService.Infrastructure.Persistence;
@@ -15,6 +16,9 @@ public class OrderDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(OrderDbContext).Assembly);
+        modelBuilder.AddInboxStateEntity();
+        modelBuilder.AddOutboxMessageEntity();
+        modelBuilder.AddOutboxStateEntity();
 
         base.OnModelCreating(modelBuilder);
     }

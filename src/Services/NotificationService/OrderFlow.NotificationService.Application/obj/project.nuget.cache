@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jEyNVUarY/E=",
+  "dgSpecHash": "rKOotO1Pcfk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Application\\OrderFlow.NotificationService.Application.csproj",
+  "projectFilePath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Application\\OrderFlow.NotificationService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amr Radi\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",

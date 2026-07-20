@@ -1,6 +1,8 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
 using OrderFlow.OrderService.Application.Interfaces.Messaging;
 using OrderFlow.OrderService.Application.Interfaces.Persistence;
 using OrderFlow.OrderService.Application.Interfaces.Repositories;
@@ -12,16 +14,27 @@ namespace OrderFlow.OrderService.Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(
+        this IServiceCollection services,
+        IConfiguration configuration)
     {
         services.AddDbContext<OrderDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-        
+            options.UseSqlServer(
+                configuration.GetConnectionString("DefaultConnection")));
+
+        services.AddMessaging(configuration, x =>
+        {
+            x.AddEntityFrameworkOutbox<OrderDbContext>(o =>
+            {
+                o.UseSqlServer();
+                o.UseBusOutbox();
+            });
+        });
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IEventPublisher, EventPublisher>();
-        
+
         return services;
     }
 }
-

@@ -35,11 +35,6 @@ public sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderComma
 
         var order = Order.Create(request.CustomerName, request.Email, request.TotalPrice);
         await _orderRepository.AddAsync(order, cancellationToken);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
-
-        _logger.LogInformation(
-            "Order saved. OrderId: {OrderId}. Publishing OrderCreatedEvent...",
-            order.Id);
 
         await _eventPublisher.PublishAsync(
             new OrderCreatedEvent(order.Id, order.CustomerName, order.Email, order.TotalPrice, order.CreatedAt),
@@ -47,6 +42,11 @@ public sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderComma
 
         _logger.LogInformation(
             "OrderCreatedEvent published successfully. OrderId: {OrderId}",
+            order.Id);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        _logger.LogInformation(
+            "Order saved. OrderId: {OrderId}. Publishing OrderCreatedEvent...",
             order.Id);
 
         return new CreateOrderResponse(order.Id, order.CustomerName, order.Email, order.TotalPrice, order.Status.ToString(), order.CreatedAt);

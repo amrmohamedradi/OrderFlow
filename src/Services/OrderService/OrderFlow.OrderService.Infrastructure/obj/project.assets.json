@@ -115,6 +115,40 @@
           }
         }
       },
+      "MassTransit.EntityFrameworkCore/8.1.3": {
+        "type": "package",
+        "dependencies": {
+          "MassTransit": "8.1.3",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/MassTransit.EntityFrameworkCoreIntegration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MassTransit.EntityFrameworkCoreIntegration.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MassTransit.RabbitMQ/8.1.3": {
+        "type": "package",
+        "dependencies": {
+          "MassTransit": "8.1.3",
+          "RabbitMQ.Client": "6.8.1"
+        },
+        "compile": {
+          "lib/net8.0/MassTransit.RabbitMqTransport.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MassTransit.RabbitMqTransport.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MediatR/14.2.0": {
         "type": "package",
         "dependencies": {
@@ -800,6 +834,26 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Configuration.Binder/10.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "10.0.9",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.9"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.0/Microsoft.Extensions.Configuration.Binder.targets": {}
+        }
+      },
       "Microsoft.Extensions.Configuration.FileExtensions/10.0.9": {
         "type": "package",
         "dependencies": {
@@ -1285,6 +1339,19 @@
           }
         }
       },
+      "RabbitMQ.Client/6.8.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.ClientModel/1.5.1": {
         "type": "package",
         "dependencies": {
@@ -1555,6 +1622,23 @@
           "bin/placeholder/OrderFlow.BuildingBlocks.Contracts.dll": {}
         }
       },
+      "OrderFlow.BuildingBlocks.Messaging/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "MassTransit.RabbitMQ": "8.1.3",
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.9",
+          "Microsoft.Extensions.Configuration.Binder": "10.0.9",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.9",
+          "OrderFlow.BuildingBlocks.Contracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OrderFlow.BuildingBlocks.Messaging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrderFlow.BuildingBlocks.Messaging.dll": {}
+        }
+      },
       "OrderFlow.OrderService.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -1721,6 +1805,52 @@
         "lib/netstandard2.1/MassTransit.Abstractions.xml",
         "masstransit.abstractions.8.1.3.nupkg.sha512",
         "masstransit.abstractions.nuspec",
+        "mt-logo-small.png"
+      ]
+    },
+    "MassTransit.EntityFrameworkCore/8.1.3": {
+      "sha512": "VS0+rxejHMQNtapz8cTTCEi0n0PoOoTeYRZiYXcaK4oaKTvHrzTWms8P3d8Fp6jEqq410MGlOK2Pt300CFwvmw==",
+      "type": "package",
+      "path": "masstransit.entityframeworkcore/8.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGet.README.md",
+        "lib/net6.0/MassTransit.EntityFrameworkCoreIntegration.dll",
+        "lib/net6.0/MassTransit.EntityFrameworkCoreIntegration.xml",
+        "lib/net7.0/MassTransit.EntityFrameworkCoreIntegration.dll",
+        "lib/net7.0/MassTransit.EntityFrameworkCoreIntegration.xml",
+        "lib/net8.0/MassTransit.EntityFrameworkCoreIntegration.dll",
+        "lib/net8.0/MassTransit.EntityFrameworkCoreIntegration.xml",
+        "lib/netstandard2.0/MassTransit.EntityFrameworkCoreIntegration.dll",
+        "lib/netstandard2.0/MassTransit.EntityFrameworkCoreIntegration.xml",
+        "masstransit.entityframeworkcore.8.1.3.nupkg.sha512",
+        "masstransit.entityframeworkcore.nuspec",
+        "mt-logo-small.png"
+      ]
+    },
+    "MassTransit.RabbitMQ/8.1.3": {
+      "sha512": "e/QtX2yzxGMmsUjMnRSgyBcMWBUU7QxSnZjGYgPpJHbhX0kry+xbDxDyioeD1RzdiUECCKNjsUQTwXtSJB24uw==",
+      "type": "package",
+      "path": "masstransit.rabbitmq/8.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGet.README.md",
+        "lib/net462/MassTransit.RabbitMqTransport.dll",
+        "lib/net462/MassTransit.RabbitMqTransport.xml",
+        "lib/net6.0/MassTransit.RabbitMqTransport.dll",
+        "lib/net6.0/MassTransit.RabbitMqTransport.xml",
+        "lib/net7.0/MassTransit.RabbitMqTransport.dll",
+        "lib/net7.0/MassTransit.RabbitMqTransport.xml",
+        "lib/net8.0/MassTransit.RabbitMqTransport.dll",
+        "lib/net8.0/MassTransit.RabbitMqTransport.xml",
+        "lib/netstandard2.0/MassTransit.RabbitMqTransport.dll",
+        "lib/netstandard2.0/MassTransit.RabbitMqTransport.xml",
+        "lib/netstandard2.1/MassTransit.RabbitMqTransport.dll",
+        "lib/netstandard2.1/MassTransit.RabbitMqTransport.xml",
+        "masstransit.rabbitmq.8.1.3.nupkg.sha512",
+        "masstransit.rabbitmq.nuspec",
         "mt-logo-small.png"
       ]
     },
@@ -3219,6 +3349,46 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Extensions.Configuration.Binder/10.0.9": {
+      "sha512": "Tp/+LPb70RyjjtLg9m5C959eP4KrUpJHThZfAegZVpsfmGvzfuNkuYbI/ft+LvXhMSyUcAeOPaN6rzTccwnZAg==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.binder/10.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/cs/Microsoft.Extensions.Configuration.Binder.SourceGeneration.dll",
+        "analyzers/dotnet/cs/cs/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/de/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/es/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/fr/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/it/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/ja/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/ko/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/pl/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/ru/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/tr/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/zh-Hans/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "analyzers/dotnet/cs/zh-Hant/Microsoft.Extensions.Configuration.Binder.SourceGeneration.resources.dll",
+        "buildTransitive/netstandard2.0/Microsoft.Extensions.Configuration.Binder.targets",
+        "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net10.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net462/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net462/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net8.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net9.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "microsoft.extensions.configuration.binder.10.0.9.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Microsoft.Extensions.Configuration.FileExtensions/10.0.9": {
       "sha512": "NgLB9cYnIb0/djSDcnqo4GIGGWooxGmr/gCUe3/CRXcKqLizOFui8MyW4EVkTB/KNJL+oXdMXnD6ZRm3Y+qkrQ==",
       "type": "package",
@@ -4000,6 +4170,23 @@
         "packageIcon.png"
       ]
     },
+    "RabbitMQ.Client/6.8.1": {
+      "sha512": "jNsmGgmCNw2S/NzskeN2ijtGywtH4Sk/G6jWUTD5sY9SrC27Xz6BsLIiB8hdsfjeyWCa4j4GvCIGkpE8wrjU1Q==",
+      "type": "package",
+      "path": "rabbitmq.client/6.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net462/RabbitMQ.Client.dll",
+        "lib/net462/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.6.8.1.nupkg.sha512",
+        "rabbitmq.client.nuspec"
+      ]
+    },
     "System.ClientModel/1.5.1": {
       "sha512": "k2jKSO0X45IqhVOT9iQB4xralNN9foRQsRvXBTyRpAVxyzCJlG895T9qYrQWbcJ6OQXxOouJQ37x5nZH5XKK+A==",
       "type": "package",
@@ -4392,6 +4579,11 @@
       "path": "../../../BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/OrderFlow.BuildingBlocks.Contracts.csproj",
       "msbuildProject": "../../../BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/OrderFlow.BuildingBlocks.Contracts.csproj"
     },
+    "OrderFlow.BuildingBlocks.Messaging/1.0.0": {
+      "type": "project",
+      "path": "../../../../BuildingBlocks/OrderFlow.BuildingBlocks.Messaging/OrderFlow.BuildingBlocks.Messaging.csproj",
+      "msbuildProject": "../../../../BuildingBlocks/OrderFlow.BuildingBlocks.Messaging/OrderFlow.BuildingBlocks.Messaging.csproj"
+    },
     "OrderFlow.OrderService.Application/1.0.0": {
       "type": "project",
       "path": "../OrderFlow.OrderService.Application/OrderFlow.OrderService.Application.csproj",
@@ -4405,6 +4597,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "MassTransit.EntityFrameworkCore >= 8.1.3",
       "Microsoft.EntityFrameworkCore >= 10.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.9",
@@ -4413,6 +4606,7 @@
       "Microsoft.Extensions.Configuration.Json >= 10.0.9",
       "Microsoft.Extensions.DependencyInjection >= 10.0.9",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 10.0.9",
+      "OrderFlow.BuildingBlocks.Messaging >= 1.0.0",
       "OrderFlow.OrderService.Application >= 1.0.0",
       "OrderFlow.OrderService.Domain >= 1.0.0"
     ]
@@ -4424,11 +4618,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
       "projectName": "OrderFlow.OrderService.Infrastructure",
-      "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Amr Radi\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4449,11 +4643,14 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj": {
-              "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj"
+            "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\OrderFlow.BuildingBlocks.Messaging.csproj": {
+              "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\OrderFlow.BuildingBlocks.Messaging.csproj"
             },
-            "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj": {
-              "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj"
+            "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj": {
+              "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Application\\OrderFlow.OrderService.Application.csproj"
+            },
+            "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj": {
+              "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\OrderService\\OrderFlow.OrderService.Domain\\OrderFlow.OrderService.Domain.csproj"
             }
           }
         }
@@ -4474,6 +4671,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "MassTransit.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.1.3, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[10.0.9, )"

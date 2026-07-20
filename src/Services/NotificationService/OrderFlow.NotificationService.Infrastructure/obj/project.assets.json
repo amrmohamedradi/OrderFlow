@@ -4538,11 +4538,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\OrderFlow.NotificationService.Infrastructure.csproj",
+      "projectUniqueName": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\OrderFlow.NotificationService.Infrastructure.csproj",
       "projectName": "OrderFlow.NotificationService.Infrastructure",
-      "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\OrderFlow.NotificationService.Infrastructure.csproj",
+      "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\OrderFlow.NotificationService.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Amr Radi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\obj\\",
+      "outputPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4563,11 +4563,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Application\\OrderFlow.NotificationService.Application.csproj": {
-              "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Application\\OrderFlow.NotificationService.Application.csproj"
+            "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Application\\OrderFlow.NotificationService.Application.csproj": {
+              "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Application\\OrderFlow.NotificationService.Application.csproj"
             },
-            "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Domain\\OrderFlow.NotificationService.Domain.csproj": {
-              "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Domain\\OrderFlow.NotificationService.Domain.csproj"
+            "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Domain\\OrderFlow.NotificationService.Domain.csproj": {
+              "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.Domain\\OrderFlow.NotificationService.Domain.csproj"
             }
           }
         }

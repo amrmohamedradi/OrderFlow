@@ -2,11 +2,24 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
 WORKDIR /src
 
-COPY . .
+# Copy solution structure for NuGet restore (cache-friendly layer)
+COPY BuildingBlocks/OrderFlow.BuildingBlocks.Messaging/OrderFlow.BuildingBlocks.Messaging.csproj BuildingBlocks/OrderFlow.BuildingBlocks.Messaging/
+COPY src/BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/OrderFlow.BuildingBlocks.Contracts.csproj src/BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/
+COPY src/Services/OrderService/OrderFlow.OrderService.Domain/OrderFlow.OrderService.Domain.csproj src/Services/OrderService/OrderFlow.OrderService.Domain/
+COPY src/Services/OrderService/OrderFlow.OrderService.Application/OrderFlow.OrderService.Application.csproj src/Services/OrderService/OrderFlow.OrderService.Application/
+COPY src/Services/OrderService/OrderFlow.OrderService.Infrastructure/OrderFlow.OrderService.Infrastructure.csproj src/Services/OrderService/OrderFlow.OrderService.Infrastructure/
+COPY src/Services/OrderService/OrderFlow.OrderService.API/OrderFlow.OrderService.API.csproj src/Services/OrderService/OrderFlow.OrderService.API/
 
 WORKDIR /src/src/Services/OrderService/OrderFlow.OrderService.API
 
+# Restore NuGet packages (cached unless .csproj files change)
 RUN dotnet restore
+
+# Copy all source code and publish
+WORKDIR /src
+COPY . .
+
+WORKDIR /src/src/Services/OrderService/OrderFlow.OrderService.API
 RUN dotnet publish -c Release -o /app/publish
 
 # Stage 2: Runtime

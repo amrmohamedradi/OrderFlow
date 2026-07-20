@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrderFlow.NotificationService.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29f4c3a361e90c76c06329276fe837ab3bdfbd0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+921f9042a899af0919367843922a653b2a6dad18")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrderFlow.NotificationService.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrderFlow.NotificationService.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

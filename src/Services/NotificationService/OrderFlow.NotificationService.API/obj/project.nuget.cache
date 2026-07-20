@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Kom2aqDp8Zc=",
+  "dgSpecHash": "itTjMDmpj0Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.API\\OrderFlow.NotificationService.API.csproj",
+  "projectFilePath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\Services\\NotificationService\\OrderFlow.NotificationService.API\\OrderFlow.NotificationService.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amr Radi\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Amr Radi\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

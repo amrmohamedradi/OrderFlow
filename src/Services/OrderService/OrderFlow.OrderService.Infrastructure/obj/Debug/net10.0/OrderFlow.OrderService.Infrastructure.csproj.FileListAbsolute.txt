@@ -60,3 +60,5 @@ C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\OrderService\OrderFlow.OrderSer
 C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\OrderService\OrderFlow.OrderService.Infrastructure\obj\Debug\net10.0\ref\OrderFlow.OrderService.Infrastructure.dll
 C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\OrderService\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.dll
 C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\OrderService\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Contracts.pdb
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\OrderService\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Messaging.dll
+C:\Users\Amr Radi\Desktop\OrderFlow\src\Services\OrderService\OrderFlow.OrderService.Infrastructure\bin\Debug\net10.0\OrderFlow.BuildingBlocks.Messaging.pdb

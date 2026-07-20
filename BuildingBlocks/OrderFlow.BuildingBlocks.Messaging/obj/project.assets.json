@@ -822,11 +822,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\OrderFlow.BuildingBlocks.Messaging.csproj",
+      "projectUniqueName": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\OrderFlow.BuildingBlocks.Messaging.csproj",
       "projectName": "OrderFlow.BuildingBlocks.Messaging",
-      "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\OrderFlow.BuildingBlocks.Messaging.csproj",
+      "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\OrderFlow.BuildingBlocks.Messaging.csproj",
       "packagesPath": "C:\\Users\\Amr Radi\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\obj\\",
+      "outputPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\BuildingBlocks\\OrderFlow.BuildingBlocks.Messaging\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -847,8 +847,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj": {
-              "projectPath": "c:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj"
+            "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj": {
+              "projectPath": "C:\\Users\\Amr Radi\\Desktop\\OrderFlow\\src\\BuildingBlocks\\OrderFlow.BuildingBlocks.Contracts\\OrderFlow.BuildingBlocks.Contracts.csproj"
             }
           }
         }
