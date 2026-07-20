@@ -2,11 +2,12 @@ using OrderFlow.NotificationService.API.Common.Handlers;
 using OrderFlow.NotificationService.Application;
 using OrderFlow.NotificationService.Infrastructure;
 using OrderFlow.NotificationService.Infrastructure.Persistence;
+using OrderFlow.BuildingBlocks.Messaging.Correlation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
+    .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{CorrelationId}] {Message:lj}{NewLine}{Exception}")
     .CreateBootstrapLogger();
 
 try
@@ -19,8 +20,8 @@ try
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services)
         .Enrich.FromLogContext()
-        .WriteTo.Console()
-        .WriteTo.File("logs/notification-.txt", rollingInterval: RollingInterval.Day));
+        .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{CorrelationId}] {Message:lj}{NewLine}{Exception}")
+        .WriteTo.File("logs/notification-.txt", rollingInterval: RollingInterval.Day, outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{CorrelationId}] {Message:lj}{NewLine}{Exception}"));
 
     builder.Services.AddControllers();
 
@@ -36,7 +37,11 @@ try
 
     builder.Services.AddProblemDetails();
 
+    builder.Services.AddCorrelationId();
+
     var app = builder.Build();
+
+    app.UseCorrelationId();
 
     using (var scope = app.Services.CreateScope())
     {

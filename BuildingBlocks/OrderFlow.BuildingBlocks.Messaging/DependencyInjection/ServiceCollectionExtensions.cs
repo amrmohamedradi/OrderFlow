@@ -2,6 +2,7 @@ using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OrderFlow.BuildingBlocks.Messaging.Configuration;
+using OrderFlow.BuildingBlocks.Messaging.Correlation;
 
 namespace OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
 
@@ -28,6 +29,10 @@ public static class ServiceCollectionExtensions
                     h.Username(options.Username);
                     h.Password(options.Password);
                 });
+
+                cfg.UsePublishFilter(typeof(CorrelationIdPublishFilter<>), context);
+                cfg.UseSendFilter(typeof(CorrelationIdSendFilter<>), context);
+                cfg.UseConsumeFilter(typeof(CorrelationIdConsumeFilter<>), context);
 
                 cfg.ConfigureEndpoints(context);
             });
