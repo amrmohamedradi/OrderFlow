@@ -3,9 +3,11 @@
   <ItemGroup>
     <ProjectReference Include="..\OrderFlow.NotificationService.Application\OrderFlow.NotificationService.Application.csproj" />
     <ProjectReference Include="..\OrderFlow.NotificationService.Domain\OrderFlow.NotificationService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\..\BuildingBlocks\OrderFlow.BuildingBlocks.Messaging\OrderFlow.BuildingBlocks.Messaging.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

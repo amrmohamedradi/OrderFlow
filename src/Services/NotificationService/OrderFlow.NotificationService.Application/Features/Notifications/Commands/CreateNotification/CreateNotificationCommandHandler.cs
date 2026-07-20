@@ -35,10 +35,18 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
 
         var notification = Notification.Create(request.OrderId, request.Email);
         await _notificationRepository.AddAsync(notification, cancellationToken);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        // Attempt email with its own independent timeout so that a slow/unavailable
+        // SMTP server does not cancel the DB work via the consumer's token.
+        using var emailCts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
         try
         {
-            await _emailService.SendAsync(notification.Email, "Order Created", $"Order {notification.OrderId} has been created.", cancellationToken);
+            await _emailService.SendAsync(
+                notification.Email,
+                "Order Created",
+                $"Order {notification.OrderId} has been created.",
+                emailCts.Token);
+
             notification.MarkAsSent();
             _logger.LogInformation(
                 "Notification sent successfully. NotificationId: {NotificationId}, Status: {Status}",
@@ -46,17 +54,18 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to send notification for OrderId: {OrderId}", notification.OrderId);
+            _logger.LogWarning(ex,
+                "Failed to send email for OrderId: {OrderId}. Notification stored with Failed status.",
+                notification.OrderId);
             notification.MarkAsFailed();
-            throw;
-        }
-        finally{
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
 
+        // Single SaveChangesAsync — MassTransit EF outbox will commit this
+        // together with the InboxState update in one transaction.
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         _logger.LogInformation(
-            "Notification created successfully. NotificationId: {NotificationId}, Status: {Status}",
+            "Notification persisted. NotificationId: {NotificationId}, Status: {Status}",
             notification.Id, notification.Status);
 
         return new CreateNotificationResponse(notification.Id, notification.Email, notification.Status.ToString(), notification.CreatedAt, notification.SentAt);

@@ -1,10 +1,14 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
+using OrderFlow.NotificationService.Application.Consumers;
 using OrderFlow.NotificationService.Application.Interfaces.Persistence;
 using OrderFlow.NotificationService.Application.Interfaces.Repositories;
 using OrderFlow.NotificationService.Application.Interfaces.Services;
 using OrderFlow.NotificationService.Infrastructure.Configuration;
+using OrderFlow.NotificationService.Infrastructure.Consumers;
 using OrderFlow.NotificationService.Infrastructure.Persistence;
 using OrderFlow.NotificationService.Infrastructure.Repositories;
 using OrderFlow.NotificationService.Infrastructure.Services;
@@ -17,6 +21,19 @@ public static class DependencyInjection
     {
         services.AddDbContext<NotificationDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        services.AddMessaging(
+        configuration,
+        configure: x =>
+        {
+            x.AddConsumer<OrderCreateConsumer, Consumers.OrderCreateConsumerDefinition>();
+
+            x.AddEntityFrameworkOutbox<NotificationDbContext>(o =>
+            {
+                o.UseSqlServer();
+                o.UseBusOutbox();
+            });
+        });
+
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<INotificationRepository, NotificationRepository>();

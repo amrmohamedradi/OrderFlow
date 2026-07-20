@@ -2,8 +2,6 @@ using OrderFlow.NotificationService.API.Common.Handlers;
 using OrderFlow.NotificationService.Application;
 using OrderFlow.NotificationService.Infrastructure;
 using OrderFlow.NotificationService.Infrastructure.Persistence;
-using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
-using OrderFlow.NotificationService.Application.Consumers;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -37,11 +35,6 @@ try
     builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
     builder.Services.AddProblemDetails();
-
-    builder.Services.AddMessaging(builder.Configuration, x =>
-    {
-        x.AddConsumer<OrderCreateConsumer>();
-    });
 
     var app = builder.Build();
 

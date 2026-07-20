@@ -1,3 +1,4 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using OrderFlow.NotificationService.Domain.Entities;
 
@@ -5,7 +6,8 @@ namespace OrderFlow.NotificationService.Infrastructure.Persistence;
 
 public class NotificationDbContext : DbContext
 {
-    public NotificationDbContext(DbContextOptions<NotificationDbContext> options): base(options)
+    public NotificationDbContext(
+        DbContextOptions<NotificationDbContext> options) : base(options)
     {
     }
 
@@ -13,7 +15,12 @@ public class NotificationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(NotificationDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(
+            typeof(NotificationDbContext).Assembly);
+
+        modelBuilder.AddInboxStateEntity();
+        modelBuilder.AddOutboxMessageEntity();
+        modelBuilder.AddOutboxStateEntity();
 
         base.OnModelCreating(modelBuilder);
     }

@@ -10,6 +10,7 @@ public class NotificationConfiguration : IEntityTypeConfiguration<Notification>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.OrderId).IsRequired();
+        builder.HasIndex(x => x.OrderId).IsUnique();
         builder.Property(x => x.Email).IsRequired();
         builder.Property(x => x.Status).IsRequired().HasConversion<string>();
         builder.Property(x => x.CreatedAt).IsRequired();

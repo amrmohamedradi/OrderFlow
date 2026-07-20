@@ -1,0 +1,79 @@
+## .NET / C# ##
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.swp
+
+## Build results ##
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+[Pp]ublish/
+
+## NuGet ##
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!**/packages/repositories.config
+*.nupkg.metadata
+
+## Rider / JetBrains ##
+.idea/
+*.sln.iml
+
+## Visual Studio Code ##
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## Visual Studio ##
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.opendb
+TestResults/
+*.testlog
+
+## OS ##
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## Docker ##
+.dockerignore
+
+## Secrets / Environment ##
+.env
+.env.local
+*.pfx
+*.key
+appsettings.Development.json
+appsettings.Local.json
+
+## EF Core Migrations (keep migrations, ignore snapshots if desired) ##
+# Uncomment if you don't want to commit migration snapshots:
+# **/Migrations/*Snapshot.cs
+
+## Logs ##
+*.log
+logs/

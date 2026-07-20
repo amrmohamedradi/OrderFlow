@@ -1,11 +1,10 @@
 {
     "csharp-dev-tools.entityFramework.migrationPreferences": {
         "OrderFlow.slnx": {
-            "startupProject": "src\\Services\\OrderService\\OrderFlow.OrderService.API\\OrderFlow.OrderService.API.csproj",
-            "migrationsProject": "src\\Services\\OrderService\\OrderFlow.OrderService.Infrastructure\\OrderFlow.OrderService.Infrastructure.csproj",
+            "startupProject": "src\\Services\\NotificationService\\OrderFlow.NotificationService.API\\OrderFlow.NotificationService.API.csproj",
+            "migrationsProject": "src\\Services\\NotificationService\\OrderFlow.NotificationService.Infrastructure\\OrderFlow.NotificationService.Infrastructure.csproj",
             "dbContextClass": "",
-            "migrationsFolder": "Migrations",
-            "targetMigration": ""
+            "migrationsFolder": "Migrations"
         }
     }
 }
