@@ -4,6 +4,8 @@ using OrderFlow.OrderService.Infrastructure;
 using OrderFlow.OrderService.Infrastructure.Persistence;
 using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
 using OrderFlow.BuildingBlocks.Messaging.Correlation;
+using OrderFlow.BuildingBlocks.Messaging.HealthChecks;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -80,6 +82,18 @@ try
     app.UseHttpsRedirection();
 
     app.MapControllers();
+
+    app.MapHealthChecks("/health/live", new HealthCheckOptions
+    {
+        Predicate = check => check.Tags.Contains("live"),
+        ResponseWriter = HealthCheckResponseWriter.WriteResponse
+    });
+
+    app.MapHealthChecks("/health/ready", new HealthCheckOptions
+    {
+        Predicate = check => check.Tags.Contains("ready") || check.Name.Equals("masstransit", StringComparison.OrdinalIgnoreCase),
+        ResponseWriter = HealthCheckResponseWriter.WriteResponse
+    });
 
     app.Run();
 }

@@ -2,7 +2,9 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using OrderFlow.BuildingBlocks.Messaging.DependencyInjection;
+using OrderFlow.BuildingBlocks.Messaging.HealthChecks;
 using OrderFlow.NotificationService.Application.Consumers;
 using OrderFlow.NotificationService.Application.Interfaces.Persistence;
 using OrderFlow.NotificationService.Application.Interfaces.Repositories;
@@ -33,6 +35,11 @@ public static class DependencyInjection
                 o.UseBusOutbox();
             });
         });
+
+        services.AddHealthChecks()
+            .AddCheck("self", () => HealthCheckResult.Healthy("Application process is alive"), tags: new[] { "live" })
+            .AddDbContextCheck<NotificationDbContext>("database", failureStatus: HealthStatus.Unhealthy, tags: new[] { "ready" })
+            .AddRabbitMqHealthCheck(configuration, "rabbitmq", tags: new[] { "ready" });
 
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
