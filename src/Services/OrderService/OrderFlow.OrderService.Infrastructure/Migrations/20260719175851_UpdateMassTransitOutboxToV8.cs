@@ -4,11 +4,9 @@
 
 namespace OrderFlow.OrderService.Infrastructure.Migrations
 {
-    /// <inheritdoc />
-    public partial class UpdateMassTransitOutboxToV8 : Migration
+        public partial class UpdateMassTransitOutboxToV8 : Migration
     {
-        /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
+                protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_OutboxMessage_InboxState_InboxMessageId_InboxConsumerId",
@@ -27,8 +25,7 @@ namespace OrderFlow.OrderService.Infrastructure.Migrations
                 table: "OutboxState");
         }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
+                protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "BusName",

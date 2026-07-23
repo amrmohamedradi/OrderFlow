@@ -5,11 +5,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OrderFlow.OrderService.Infrastructure.Migrations
 {
-    /// <inheritdoc />
-    public partial class AddMassTransitOutbox : Migration
+        public partial class AddMassTransitOutbox : Migration
     {
-        /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
+                protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "InboxState",
@@ -133,8 +131,7 @@ namespace OrderFlow.OrderService.Infrastructure.Migrations
                 column: "Created");
         }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
+                protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "OutboxMessage");

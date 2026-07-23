@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using OrderFlow.OrderService.Domain.Entities;
 using MassTransit;
 
-
 namespace OrderFlow.OrderService.Infrastructure.Persistence;
 
 public class OrderDbContext : DbContext

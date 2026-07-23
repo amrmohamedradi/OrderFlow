@@ -4,11 +4,9 @@
 
 namespace OrderFlow.NotificationService.Infrastructure.Persistence.Migrations
 {
-    /// <inheritdoc />
-    public partial class RemoveTotalPrice_UpdateStatus : Migration
+        public partial class RemoveTotalPrice_UpdateStatus : Migration
     {
-        /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
+                protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
                 name: "TotalPrice",
@@ -23,8 +21,7 @@ namespace OrderFlow.NotificationService.Infrastructure.Persistence.Migrations
                 oldType: "int");
         }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
+                protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<int>(
                 name: "Status",

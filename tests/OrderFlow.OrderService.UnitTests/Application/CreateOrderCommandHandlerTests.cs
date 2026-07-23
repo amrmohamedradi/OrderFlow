@@ -38,14 +38,11 @@ public class CreateOrderCommandHandlerTests
     [Fact]
     public async Task Handle_WhenOrderIsValid_ShouldAddOrderToRepository()
     {
-        // Arrange
-        var command = new CreateOrderCommand("Alice", "alice@example.com", 99.99m);
+                var command = new CreateOrderCommand("Alice", "alice@example.com", 99.99m);
 
-        // Act
-        await _handler.Handle(command, CancellationToken.None);
+                await _handler.Handle(command, CancellationToken.None);
 
-        // Assert – repository received exactly one call with a non-null Order
-        await _orderRepository.Received(1).AddAsync(
+                await _orderRepository.Received(1).AddAsync(
             Arg.Is<Order>(o =>
                 o.CustomerName == "Alice" &&
                 o.Email == "alice@example.com" &&
@@ -57,14 +54,11 @@ public class CreateOrderCommandHandlerTests
     [Fact]
     public async Task Handle_WhenOrderIsValid_ShouldPublishOrderCreatedEvent()
     {
-        // Arrange
-        var command = new CreateOrderCommand("Bob", "bob@example.com", 50m);
+                var command = new CreateOrderCommand("Bob", "bob@example.com", 50m);
 
-        // Act
-        await _handler.Handle(command, CancellationToken.None);
+                await _handler.Handle(command, CancellationToken.None);
 
-        // Assert – event publisher called once with a matching event
-        await _eventPublisher.Received(1).PublishAsync(
+                await _eventPublisher.Received(1).PublishAsync(
             Arg.Is<OrderCreatedEvent>(e =>
                 e.CustomerName == "Bob" &&
                 e.Email == "bob@example.com" &&
@@ -75,27 +69,21 @@ public class CreateOrderCommandHandlerTests
     [Fact]
     public async Task Handle_WhenOrderIsValid_ShouldCallSaveChanges()
     {
-        // Arrange
-        var command = new CreateOrderCommand("Carol", "carol@example.com", 25m);
+                var command = new CreateOrderCommand("Carol", "carol@example.com", 25m);
 
-        // Act
-        await _handler.Handle(command, CancellationToken.None);
+                await _handler.Handle(command, CancellationToken.None);
 
-        // Assert
-        await _unitOfWork.Received(1).SaveChangesAsync(Arg.Any<CancellationToken>());
+                await _unitOfWork.Received(1).SaveChangesAsync(Arg.Any<CancellationToken>());
     }
 
     [Fact]
     public async Task Handle_WhenOrderIsValid_ShouldReturnResponseWithCorrectData()
     {
-        // Arrange
-        var command = new CreateOrderCommand("Dave", "dave@example.com", 150m);
+                var command = new CreateOrderCommand("Dave", "dave@example.com", 150m);
 
-        // Act
-        var response = await _handler.Handle(command, CancellationToken.None);
+                var response = await _handler.Handle(command, CancellationToken.None);
 
-        // Assert
-        response.Should().NotBeNull();
+                response.Should().NotBeNull();
         response.Id.Should().NotBeEmpty();
         response.CustomerName.Should().Be("Dave");
         response.Email.Should().Be("dave@example.com");
@@ -106,8 +94,7 @@ public class CreateOrderCommandHandlerTests
     [Fact]
     public async Task Handle_WhenOrderIsValid_ShouldPublishEventBeforeSaving()
     {
-        // Arrange – track call order
-        var callSequence = new List<string>();
+                var callSequence = new List<string>();
 
         _eventPublisher
             .PublishAsync(Arg.Any<OrderCreatedEvent>(), Arg.Any<CancellationToken>())
@@ -119,46 +106,38 @@ public class CreateOrderCommandHandlerTests
 
         var command = new CreateOrderCommand("Eve", "eve@example.com", 75m);
 
-        // Act
-        await _handler.Handle(command, CancellationToken.None);
+                await _handler.Handle(command, CancellationToken.None);
 
-        // Assert – publish is recorded before save (matches handler implementation)
-        callSequence.Should().ContainInOrder("publish", "save");
+                callSequence.Should().ContainInOrder("publish", "save");
     }
 
     [Fact]
     public async Task Handle_WhenRepositoryThrows_ShouldPropagateException()
     {
-        // Arrange
-        _orderRepository
+                _orderRepository
             .AddAsync(Arg.Any<Order>(), Arg.Any<CancellationToken>())
             .ThrowsAsync(new InvalidOperationException("DB unavailable"));
 
         var command = new CreateOrderCommand("Frank", "frank@example.com", 10m);
 
-        // Act
-        var act = () => _handler.Handle(command, CancellationToken.None);
+                var act = () => _handler.Handle(command, CancellationToken.None);
 
-        // Assert
-        await act.Should().ThrowAsync<InvalidOperationException>()
+                await act.Should().ThrowAsync<InvalidOperationException>()
                  .WithMessage("DB unavailable");
     }
 
     [Fact]
     public async Task Handle_WhenEventPublisherThrows_ShouldPropagateExceptionAndNotSave()
     {
-        // Arrange
-        _eventPublisher
+                _eventPublisher
             .PublishAsync(Arg.Any<OrderCreatedEvent>(), Arg.Any<CancellationToken>())
             .ThrowsAsync(new InvalidOperationException("Outbox unavailable"));
 
         var command = new CreateOrderCommand("Grace", "grace@example.com", 10m);
 
-        // Act
-        var act = () => _handler.Handle(command, CancellationToken.None);
+                var act = () => _handler.Handle(command, CancellationToken.None);
 
-        // Assert
-        await act.Should().ThrowAsync<InvalidOperationException>();
+                await act.Should().ThrowAsync<InvalidOperationException>();
         await _unitOfWork.DidNotReceive().SaveChangesAsync(Arg.Any<CancellationToken>());
     }
 }

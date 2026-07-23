@@ -20,8 +20,7 @@ public class EmailService : IEmailService
         using var client = new SmtpClient(_options.Host, _options.Port);
         client.Credentials = new NetworkCredential(_options.Username, _options.Password);
         client.EnableSsl = true;
-        client.Timeout = 5000; // 5 seconds — fail fast when SMTP is unreachable
-
+        client.Timeout = 5000;
         using var message = new MailMessage();
         message.From = new MailAddress(_options.From);
         message.To.Add(to);

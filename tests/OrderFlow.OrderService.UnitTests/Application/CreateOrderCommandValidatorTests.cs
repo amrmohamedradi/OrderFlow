@@ -12,14 +12,11 @@ public class CreateOrderCommandValidatorTests
     [Fact]
     public void Validate_WithValidCommand_ShouldPassValidation()
     {
-        // Arrange
-        var command = new CreateOrderCommand("Alice", "alice@example.com", 99.99m);
+                var command = new CreateOrderCommand("Alice", "alice@example.com", 99.99m);
 
-        // Act
-        var result = _validator.TestValidate(command);
+                var result = _validator.TestValidate(command);
 
-        // Assert
-        result.ShouldNotHaveAnyValidationErrors();
+                result.ShouldNotHaveAnyValidationErrors();
     }
 
     [Theory]
@@ -27,27 +24,21 @@ public class CreateOrderCommandValidatorTests
     [InlineData("   ")]
     public void Validate_WithEmptyOrWhitespaceCustomerName_ShouldFailValidation(string customerName)
     {
-        // Arrange
-        var command = new CreateOrderCommand(customerName, "alice@example.com", 10m);
+                var command = new CreateOrderCommand(customerName, "alice@example.com", 10m);
 
-        // Act
-        var result = _validator.TestValidate(command);
+                var result = _validator.TestValidate(command);
 
-        // Assert
-        result.ShouldHaveValidationErrorFor(c => c.CustomerName);
+                result.ShouldHaveValidationErrorFor(c => c.CustomerName);
     }
 
     [Fact]
     public void Validate_WithCustomerNameExceedingMaxLength_ShouldFailValidation()
     {
-        // Arrange
-        var command = new CreateOrderCommand(new string('A', 101), "alice@example.com", 10m);
+                var command = new CreateOrderCommand(new string('A', 101), "alice@example.com", 10m);
 
-        // Act
-        var result = _validator.TestValidate(command);
+                var result = _validator.TestValidate(command);
 
-        // Assert
-        result.ShouldHaveValidationErrorFor(c => c.CustomerName);
+                result.ShouldHaveValidationErrorFor(c => c.CustomerName);
     }
 
     [Theory]
@@ -57,14 +48,11 @@ public class CreateOrderCommandValidatorTests
     [InlineData("@nodomain.com")]
     public void Validate_WithInvalidEmail_ShouldFailValidation(string email)
     {
-        // Arrange
-        var command = new CreateOrderCommand("Alice", email, 10m);
+                var command = new CreateOrderCommand("Alice", email, 10m);
 
-        // Act
-        var result = _validator.TestValidate(command);
+                var result = _validator.TestValidate(command);
 
-        // Assert
-        result.ShouldHaveValidationErrorFor(c => c.Email);
+                result.ShouldHaveValidationErrorFor(c => c.Email);
     }
 
     [Theory]
@@ -73,26 +61,20 @@ public class CreateOrderCommandValidatorTests
     [InlineData(-100)]
     public void Validate_WithNonPositiveTotalPrice_ShouldFailValidation(decimal totalPrice)
     {
-        // Arrange
-        var command = new CreateOrderCommand("Alice", "alice@example.com", totalPrice);
+                var command = new CreateOrderCommand("Alice", "alice@example.com", totalPrice);
 
-        // Act
-        var result = _validator.TestValidate(command);
+                var result = _validator.TestValidate(command);
 
-        // Assert
-        result.ShouldHaveValidationErrorFor(c => c.TotalPrice);
+                result.ShouldHaveValidationErrorFor(c => c.TotalPrice);
     }
 
     [Fact]
     public void Validate_WithSmallPositiveTotalPrice_ShouldPassValidation()
     {
-        // Arrange
-        var command = new CreateOrderCommand("Alice", "alice@example.com", 0.01m);
+                var command = new CreateOrderCommand("Alice", "alice@example.com", 0.01m);
 
-        // Act
-        var result = _validator.TestValidate(command);
+                var result = _validator.TestValidate(command);
 
-        // Assert
-        result.ShouldNotHaveValidationErrorFor(c => c.TotalPrice);
+                result.ShouldNotHaveValidationErrorFor(c => c.TotalPrice);
     }
 }

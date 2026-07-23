@@ -83,7 +83,7 @@ services:
       RabbitMQ__Password: guest
       Email__Host: sandbox.smtp.mailtrap.io
       Email__Port: 2525
-      Email__UserName: 9af5d187fa4d43
+      Email__Username: 9af5d187fa4d43
       Email__Password: 3420d87b479e87
       Email__From: no-reply@orderflow.com
 

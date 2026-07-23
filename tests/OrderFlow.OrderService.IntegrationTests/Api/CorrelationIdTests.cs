@@ -20,8 +20,7 @@ public class CorrelationIdTests
     [Fact]
     public async Task PostOrder_WithCorrelationIdHeader_ShouldEchoSameCorrelationIdInResponse()
     {
-        // Arrange
-        var correlationId = Guid.NewGuid().ToString();
+                var correlationId = Guid.NewGuid().ToString();
         var request = new HttpRequestMessage(HttpMethod.Post, "/api/orders");
         request.Headers.Add(CorrelationIdMiddleware.CorrelationIdHeaderName, correlationId);
         request.Content = JsonContent.Create(new
@@ -31,11 +30,9 @@ public class CorrelationIdTests
             totalPrice = 10m
         });
 
-        // Act
-        var response = await _client.SendAsync(request);
+                var response = await _client.SendAsync(request);
 
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.Created);
+                response.StatusCode.Should().Be(HttpStatusCode.Created);
         response.Headers.TryGetValues(CorrelationIdMiddleware.CorrelationIdHeaderName, out var values)
                 .Should().BeTrue();
         values!.First().Should().Be(correlationId);
@@ -44,19 +41,16 @@ public class CorrelationIdTests
     [Fact]
     public async Task PostOrder_WithoutCorrelationIdHeader_ShouldGenerateAndReturnCorrelationId()
     {
-        // Arrange – no X-Correlation-ID header
-        var payload = new
+                var payload = new
         {
             customerName = "Bob",
             email = "bob@example.com",
             totalPrice = 20m
         };
 
-        // Act
-        var response = await _client.PostAsJsonAsync("/api/orders", payload);
+                var response = await _client.PostAsJsonAsync("/api/orders", payload);
 
-        // Assert – the middleware generates a new correlation ID and echoes it back
-        response.Headers.TryGetValues(CorrelationIdMiddleware.CorrelationIdHeaderName, out var values)
+                response.Headers.TryGetValues(CorrelationIdMiddleware.CorrelationIdHeaderName, out var values)
                 .Should().BeTrue();
 
         var returnedId = values!.First();
@@ -66,8 +60,7 @@ public class CorrelationIdTests
     [Fact]
     public async Task PostOrder_WithMalformedCorrelationIdHeader_ShouldGenerateNewCorrelationId()
     {
-        // Arrange – header present but not a valid Guid
-        var request = new HttpRequestMessage(HttpMethod.Post, "/api/orders");
+                var request = new HttpRequestMessage(HttpMethod.Post, "/api/orders");
         request.Headers.Add(CorrelationIdMiddleware.CorrelationIdHeaderName, "not-a-guid");
         request.Content = JsonContent.Create(new
         {
@@ -76,11 +69,9 @@ public class CorrelationIdTests
             totalPrice = 30m
         });
 
-        // Act
-        var response = await _client.SendAsync(request);
+                var response = await _client.SendAsync(request);
 
-        // Assert – middleware falls back to a new Guid
-        response.Headers.TryGetValues(CorrelationIdMiddleware.CorrelationIdHeaderName, out var values)
+                response.Headers.TryGetValues(CorrelationIdMiddleware.CorrelationIdHeaderName, out var values)
                 .Should().BeTrue();
 
         var returnedId = values!.First();

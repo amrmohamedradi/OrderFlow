@@ -14,7 +14,7 @@ public class Order : BaseEntity
     public OrderStatus Status { get; private set; } = OrderStatus.Pending;
 
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
-    
+
     private Order(){}
 
     private Order(string customerName , string email , decimal totalPrice)

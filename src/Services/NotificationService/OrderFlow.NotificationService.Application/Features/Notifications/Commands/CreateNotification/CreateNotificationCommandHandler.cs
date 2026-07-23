@@ -36,9 +36,7 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
         var notification = Notification.Create(request.OrderId, request.Email);
         await _notificationRepository.AddAsync(notification, cancellationToken);
 
-        // Attempt email with its own independent timeout so that a slow/unavailable
-        // SMTP server does not cancel the DB work via the consumer's token.
-        using var emailCts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+                        using var emailCts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
         try
         {
             await _emailService.SendAsync(
@@ -60,9 +58,7 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
             notification.MarkAsFailed();
         }
 
-        // Single SaveChangesAsync — MassTransit EF outbox will commit this
-        // together with the InboxState update in one transaction.
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+                        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         _logger.LogInformation(
             "Notification persisted. NotificationId: {NotificationId}, Status: {Status}",

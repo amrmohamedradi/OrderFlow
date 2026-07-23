@@ -12,11 +12,6 @@ using Xunit;
 
 namespace OrderFlow.NotificationService.UnitTests.Consumers;
 
-/// <summary>
-/// Tests for <see cref="OrderCreateConsumer"/> using the MassTransit in-memory test harness.
-/// The consumer dispatches a <see cref="CreateNotificationCommand"/> via MediatR's ISender.
-/// We verify the correct command is sent with the right data from the event.
-/// </summary>
 public class OrderCreateConsumerTests : IAsyncLifetime
 {
     private ITestHarness _harness = null!;
@@ -51,19 +46,15 @@ public class OrderCreateConsumerTests : IAsyncLifetime
     [Fact]
     public async Task Consume_WhenOrderCreatedEventReceived_ShouldDispatchCreateNotificationCommand()
     {
-        // Arrange
-        var orderId = Guid.NewGuid();
+                var orderId = Guid.NewGuid();
         var email = "alice@example.com";
         var @event = new OrderCreatedEvent(orderId, "Alice", email, 99.99m, DateTime.UtcNow);
 
-        // Act
-        await _harness.Bus.Publish(@event);
+                await _harness.Bus.Publish(@event);
 
-        // Assert – consumer processed the message
-        (await _harness.Consumed.Any<OrderCreatedEvent>()).Should().BeTrue();
+                (await _harness.Consumed.Any<OrderCreatedEvent>()).Should().BeTrue();
 
-        // Assert – ISender.Send was called once
-        await _sender.Received(1).Send(
+                await _sender.Received(1).Send(
             Arg.Any<CreateNotificationCommand>(),
             Arg.Any<CancellationToken>());
     }
@@ -71,19 +62,15 @@ public class OrderCreateConsumerTests : IAsyncLifetime
     [Fact]
     public async Task Consume_WhenOrderCreatedEventReceived_ShouldPassCorrectOrderIdAndEmailToCommand()
     {
-        // Arrange
-        var orderId = Guid.NewGuid();
+                var orderId = Guid.NewGuid();
         const string email = "bob@example.com";
         var @event = new OrderCreatedEvent(orderId, "Bob", email, 50m, DateTime.UtcNow);
 
-        // Act
-        await _harness.Bus.Publish(@event);
+                await _harness.Bus.Publish(@event);
 
-        // Assert – wait for the consumer to process
-        (await _harness.Consumed.Any<OrderCreatedEvent>()).Should().BeTrue();
+                (await _harness.Consumed.Any<OrderCreatedEvent>()).Should().BeTrue();
 
-        // Assert – the command sent to MediatR carries the correct OrderId and Email
-        await _sender.Received(1).Send(
+                await _sender.Received(1).Send(
             Arg.Is<CreateNotificationCommand>(cmd =>
                 cmd.OrderId == orderId &&
                 cmd.Email == email),

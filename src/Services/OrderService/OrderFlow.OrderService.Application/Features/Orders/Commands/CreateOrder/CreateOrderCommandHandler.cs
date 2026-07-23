@@ -46,7 +46,7 @@ public sealed class CreateOrderCommandHandler : IRequestHandler<CreateOrderComma
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         _logger.LogInformation(
-            "Order saved. OrderId: {OrderId}. Publishing OrderCreatedEvent...",
+            "Order and Outbox event saved successfully. OrderId: {OrderId}",
             order.Id);
 
         return new CreateOrderResponse(order.Id, order.CustomerName, order.Email, order.TotalPrice, order.Status.ToString(), order.CreatedAt);

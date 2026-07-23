@@ -42,14 +42,11 @@ try
 
     builder.Services.AddCorrelationId();
 
-
     var app = builder.Build();
 
     app.UseCorrelationId();
 
-    // Skip automatic migration in the Testing environment —
-    // the test WebApplicationFactory calls EnsureCreated() on the test database.
-    if (!app.Environment.IsEnvironment("Testing"))
+            if (!app.Environment.IsEnvironment("Testing"))
     {
         using var scope = app.Services.CreateScope();
         var services = scope.ServiceProvider;
@@ -68,7 +65,7 @@ try
             {
                 logger.LogWarning(ex, "An error occurred while migrating the database. Retrying in 5 seconds... (Attempt {Attempt}/20)", i + 1);
                 if (i == 19) throw;
-                System.Threading.Thread.Sleep(5000);
+                await Task.Delay(5000, cancellationToken: default);
             }
         }
     }
@@ -77,7 +74,6 @@ try
 
     app.UseExceptionHandler();
 
-    
     app.UseSwagger();
     app.UseSwaggerUI();
 
@@ -108,5 +104,4 @@ finally
     Log.CloseAndFlush();
 }
 
-// Required for WebApplicationFactory<Program> in integration tests
 public partial class Program { }

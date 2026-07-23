@@ -63,7 +63,7 @@ try
             {
                 logger.LogWarning(ex, "An error occurred while migrating the database. Retrying in 5 seconds... (Attempt {Attempt}/20)", i + 1);
                 if (i == 19) throw;
-                System.Threading.Thread.Sleep(5000);
+                await Task.Delay(5000, cancellationToken: default);
             }
         }
     }
@@ -72,10 +72,8 @@ try
 
     app.UseExceptionHandler();
 
-    
     app.UseSwagger();
     app.UseSwaggerUI();
-    
 
     app.UseHttpsRedirection();
 

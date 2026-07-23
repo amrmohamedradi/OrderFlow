@@ -41,12 +41,10 @@ public static class DependencyInjection
             .AddDbContextCheck<NotificationDbContext>("database", failureStatus: HealthStatus.Unhealthy, tags: new[] { "ready" })
             .AddRabbitMqHealthCheck(configuration, "rabbitmq", tags: new[] { "ready" });
 
-
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<INotificationRepository, NotificationRepository>();
         services.Configure<EmailOptions>(configuration.GetSection("Email"));
         services.AddScoped<IEmailService, EmailService>();
-
 
         return services;
     }

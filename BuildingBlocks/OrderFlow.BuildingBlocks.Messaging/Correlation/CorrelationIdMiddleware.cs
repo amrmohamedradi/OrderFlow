@@ -18,8 +18,8 @@ public class CorrelationIdMiddleware : IMiddleware
     {
         Guid correlationId;
 
-        if (context.Request.Headers.TryGetValue(CorrelationIdHeaderName, out StringValues headerValue) 
-            && Guid.TryParse(headerValue.FirstOrDefault(), out Guid parsedGuid) 
+        if (context.Request.Headers.TryGetValue(CorrelationIdHeaderName, out StringValues headerValue)
+            && Guid.TryParse(headerValue.FirstOrDefault(), out Guid parsedGuid)
             && parsedGuid != Guid.Empty)
         {
             correlationId = parsedGuid;
