@@ -42,14 +42,16 @@ try
 
     builder.Services.AddCorrelationId();
 
-    // builder.Services.AddMessaging(builder.Configuration);
 
     var app = builder.Build();
 
     app.UseCorrelationId();
 
-    using (var scope = app.Services.CreateScope())
+    // Skip automatic migration in the Testing environment —
+    // the test WebApplicationFactory calls EnsureCreated() on the test database.
+    if (!app.Environment.IsEnvironment("Testing"))
     {
+        using var scope = app.Services.CreateScope();
         var services = scope.ServiceProvider;
         var logger = services.GetRequiredService<ILogger<Program>>();
         var dbContext = services.GetRequiredService<OrderDbContext>();
@@ -105,3 +107,6 @@ finally
 {
     Log.CloseAndFlush();
 }
+
+// Required for WebApplicationFactory<Program> in integration tests
+public partial class Program { }

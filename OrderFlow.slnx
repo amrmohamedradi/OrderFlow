@@ -1,18 +1,29 @@
 <Solution>
+  <Folder Name="/src/" />
   <Folder Name="/src/BuildingBlocks/">
-    <Project Path="src/BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/OrderFlow.BuildingBlocks.Contracts.csproj"/>
-    <Project Path="BuildingBlocks/OrderFlow.BuildingBlocks.Messaging/OrderFlow.BuildingBlocks.Messaging.csproj"/>
+    <Project Path="src/BuildingBlocks/OrderFlow.BuildingBlocks.Contracts/OrderFlow.BuildingBlocks.Contracts.csproj" />
+    <Project Path="BuildingBlocks/OrderFlow.BuildingBlocks.Messaging/OrderFlow.BuildingBlocks.Messaging.csproj" />
   </Folder>
   <Folder Name="/src/Services/OrderService/">
-    <Project Path="src/Services/OrderService/OrderFlow.OrderService.API/OrderFlow.OrderService.API.csproj"/>
-    <Project Path="src/Services/OrderService/OrderFlow.OrderService.Application/OrderFlow.OrderService.Application.csproj"/>
-    <Project Path="src/Services/OrderService/OrderFlow.OrderService.Domain/OrderFlow.OrderService.Domain.csproj"/>
-    <Project Path="src/Services/OrderService/OrderFlow.OrderService.Infrastructure/OrderFlow.OrderService.Infrastructure.csproj"/>
+    <Project Path="src/Services/OrderService/OrderFlow.OrderService.API/OrderFlow.OrderService.API.csproj" />
+    <Project Path="src/Services/OrderService/OrderFlow.OrderService.Application/OrderFlow.OrderService.Application.csproj" />
+    <Project Path="src/Services/OrderService/OrderFlow.OrderService.Domain/OrderFlow.OrderService.Domain.csproj" />
+    <Project Path="src/Services/OrderService/OrderFlow.OrderService.Infrastructure/OrderFlow.OrderService.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/src/Gateway/">
+    <Project Path="src/Gateway/OrderFlow.ApiGateway/OrderFlow.ApiGateway.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
   <Folder Name="/src/Services/NotificationService/">
-    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.API/OrderFlow.NotificationService.API.csproj"/>
-    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.Application/OrderFlow.NotificationService.Application.csproj"/>
-    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.Domain/OrderFlow.NotificationService.Domain.csproj"/>
-    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.Infrastructure/OrderFlow.NotificationService.Infrastructure.csproj"/>
+    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.API/OrderFlow.NotificationService.API.csproj" />
+    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.Application/OrderFlow.NotificationService.Application.csproj" />
+    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.Domain/OrderFlow.NotificationService.Domain.csproj" />
+    <Project Path="src/Services/NotificationService/OrderFlow.NotificationService.Infrastructure/OrderFlow.NotificationService.Infrastructure.csproj" />
   </Folder>
-</Solution>
+  <Folder Name="/tests/">
+    <Project Path="tests/OrderFlow.OrderService.UnitTests/OrderFlow.OrderService.UnitTests.csproj" />
+    <Project Path="tests/OrderFlow.OrderService.IntegrationTests/OrderFlow.OrderService.IntegrationTests.csproj" />
+    <Project Path="tests/OrderFlow.NotificationService.UnitTests/OrderFlow.NotificationService.UnitTests.csproj" />
+    <Project Path="tests/OrderFlow.NotificationService.IntegrationTests/OrderFlow.NotificationService.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

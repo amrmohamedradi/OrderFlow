@@ -17,7 +17,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 20s
+      start_period: 60s
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -47,9 +47,9 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8080/health/ready || exit 1"]
       interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=OrderFlow_OrderService;User ID=sa;Password=YourStrong@Pass123;TrustServerCertificate=True;MultipleActiveResultSets=True"
@@ -72,9 +72,9 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8080/health/ready || exit 1"]
       interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=OrderFlow_NotificationService;User ID=sa;Password=YourStrong@Pass123;TrustServerCertificate=True;MultipleActiveResultSets=True"
@@ -86,6 +86,20 @@ services:
       Email__UserName: 9af5d187fa4d43
       Email__Password: 3420d87b479e87
       Email__From: no-reply@orderflow.com
+
+  apigateway:
+    build:
+      context: .
+      dockerfile: src/Gateway/OrderFlow.ApiGateway/Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      ReverseProxy__Clusters__orders-cluster__Destinations__destination1__Address: "http://orderservice:8080/"
+    depends_on:
+      orderservice:
+        condition: service_healthy
 
 volumes:
   sqlserver_data:

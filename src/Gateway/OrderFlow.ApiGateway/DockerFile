@@ -1,0 +1,30 @@
+# Stage 1: Build
+FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
+WORKDIR /src
+
+# Copy project file for NuGet restore (cache-friendly layer)
+COPY src/Gateway/OrderFlow.ApiGateway/OrderFlow.ApiGateway.csproj src/Gateway/OrderFlow.ApiGateway/
+
+WORKDIR /src/src/Gateway/OrderFlow.ApiGateway
+
+# Restore NuGet packages
+RUN dotnet restore
+
+# Copy all source code and publish
+WORKDIR /src
+COPY . .
+
+WORKDIR /src/src/Gateway/OrderFlow.ApiGateway
+RUN dotnet publish -c Release -o /app/publish
+
+# Stage 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-preview
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY --from=build /app/publish .
+
+EXPOSE 8080
+
+ENTRYPOINT ["dotnet", "OrderFlow.ApiGateway.dll"]
