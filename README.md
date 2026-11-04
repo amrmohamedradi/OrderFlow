@@ -81,9 +81,9 @@
 
 | Service | Internal Port | Docker Host Port | Public Routes |
 | :--- | :---: | :---: | :--- |
-| **ApiGateway** | `8080` | **`5000`** | `POST /api/orders` |
-| **OrderService** | `8080` | **`5001`** | `POST /api/orders`, `/health/live`, `/health/ready`, `/swagger` |
-| **NotificationService** | `8080` | **`5002`** | `/health/live`, `/health/ready`, `/swagger` |
+| **ApiGateway** | `8080` | **`5000`** | `POST /api/orders`, `/docs` (Swagger UI proxied from OrderService) |
+| **OrderService** | `8080` | **`5001`** | `POST /api/orders`, `/health/live`, `/health/ready`, `/docs` |
+| **NotificationService** | `8080` | **`5002`** | `/health/live`, `/health/ready`, `/docs` |
 | **RabbitMQ Management** | `15672` | **`15672`** | `http://localhost:15672` (guest/guest) |
 | **SQL Server** | `1433` | **`1433`** | `localhost,1433` (sa/YourStrong@Pass123) |
 
@@ -111,6 +111,8 @@ docker-compose up -d --build
 docker-compose ps
 ```
 All containers (`orderflow-sqlserver`, `orderflow-rabbitmq`, `orderflow-orderservice`, `orderflow-notificationservice`, `orderflow-apigateway-1`) should show `Up` and `healthy`.
+
+> 💡 **Swagger UI** is served at `/docs` on every service (e.g. `http://localhost:5000/docs` through the gateway). Opening the site root (`/`) redirects to `/docs`, and the OpenAPI document is available at `/swagger/v1/swagger.json`.
 
 ---
 
@@ -149,6 +151,59 @@ X-Correlation-ID: e2e-test-1001
 - `customerName`: Required, non-whitespace, max 100 characters.
 - `email`: Required, valid email format.
 - `totalPrice`: Must be greater than `0`.
+
+---
+
+## ☁️ Deploying to MonsterASP.NET (Windows / IIS hosting)
+
+MonsterASP.NET is shared IIS hosting: it runs ASP.NET Core apps and provides SQL Server, but it has **no Docker and no RabbitMQ**. Each service therefore needs its own site and database, and the message broker must be hosted externally (e.g. the free [CloudAMQP](https://www.cloudamqp.com/) plan).
+
+### What you need
+| Requirement | Details |
+| :--- | :--- |
+| **3 sites** | One each for `ApiGateway`, `OrderService`, `NotificationService` (each with a Web Deploy publish profile) |
+| **2 SQL Server databases** | One for `OrderService`, one for `NotificationService`. They must be separate because both use the default `__EFMigrationsHistory` table |
+| **External RabbitMQ** | Host, port (`5671` for TLS), virtual host, username, password |
+| **SMTP account** | Optional: Mailtrap sandbox is used by default for notification emails |
+| **.NET 10 hosting** | Confirm the hosting plan supports the .NET 10 runtime |
+
+### Configuration (environment variables)
+Never commit credentials. Set them as environment variables (in the `<environmentVariables>` section of the published `web.config`, or through the hosting panel):
+
+| Variable | Service | Description |
+| :--- | :--- | :--- |
+| `ConnectionStrings__DefaultConnection` | Order, Notification | SQL Server connection string (one database per service) |
+| `RabbitMQ__Host` | Order, Notification | Broker host name |
+| `RabbitMQ__Port` | Order, Notification | `5672` (plain) or `5671` (TLS). Default `5672` |
+| `RabbitMQ__UseSsl` | Order, Notification | `true` for TLS (required by CloudAMQP). Default `false` |
+| `RabbitMQ__VirtualHost` | Order, Notification | Virtual host. Default `/` |
+| `RabbitMQ__Username` / `RabbitMQ__Password` | Order, Notification | Broker credentials |
+| `Email__Host`, `Email__Port`, `Email__Username`, `Email__Password`, `Email__From` | Notification | SMTP settings |
+| `ReverseProxy__Clusters__orders-cluster__Destinations__destination1__Address` | Gateway | Public URL of the deployed OrderService, e.g. `http://<order-site>.runasp.net/` |
+
+### Publish & deploy
+```bash
+# 1. Publish each project
+dotnet publish src/Services/OrderService/OrderFlow.OrderService.API -c Release -o publish/order
+dotnet publish src/Services/NotificationService/OrderFlow.NotificationService.API -c Release -o publish/notification
+dotnet publish src/Gateway/OrderFlow.ApiGateway -c Release -o publish/gateway
+
+# 2. Add the environment variables above to each publish/*/web.config
+#    (inside <aspNetCore ...><environmentVariables>...</environmentVariables></aspNetCore>)
+
+# 3. Deploy each folder with Web Deploy (or Visual Studio's "Import Profile")
+msdeploy -verb:sync -source:contentPath=publish/order   -dest:contentPath=<siteId>,computerName=https://<siteId>.siteasp.net:8172/msdeploy.axd?site=<siteId>,userName=<siteId>,password=<password>,authType=Basic   -allowUntrusted -enableRule:AppOffline -enableRule:DoNotDeleteRule
+```
+
+> ℹ️ EF Core migrations are applied automatically when each service starts, so the databases only need to exist and be empty.
+>
+> ⚠️ If a deployment fails, MonsterASP may leave an `app_offline.htm` file on the site (it shows "Site Under Construction"). Remove it with `msdeploy -verb:delete -dest:contentPath=<siteId>/app_offline.htm,...`.
+>
+> 🔒 Use HTTPS once SSL is enabled for your domain, and rotate any credentials that were shared while setting things up.
+
+### Verify the deployment
+- `GET /health/live` and `GET /health/ready` on OrderService and NotificationService should return `Healthy` (the MassTransit bus can take a few seconds to report `Ready` after a cold start).
+- Open `/docs` on the gateway and try `POST /api/orders`.
 
 ---
 

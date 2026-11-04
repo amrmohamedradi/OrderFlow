@@ -23,8 +23,19 @@ public class RabbitMqHealthCheck : IHealthCheck
                 HostName = _options.Host,
                 UserName = _options.Username,
                 Password = _options.Password,
+                VirtualHost = _options.VirtualHost,
+                Port = _options.Port,
                 RequestedConnectionTimeout = TimeSpan.FromSeconds(3)
             };
+
+            if (_options.UseSsl)
+            {
+                factory.Ssl = new SslOption
+                {
+                    Enabled = true,
+                    ServerName = _options.Host
+                };
+            }
 
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
