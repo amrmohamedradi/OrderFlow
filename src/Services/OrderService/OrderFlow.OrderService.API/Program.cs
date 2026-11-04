@@ -75,9 +75,15 @@ try
     app.UseExceptionHandler();
 
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.RoutePrefix = "docs";
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "OrderFlow Order Service API v1");
+    });
 
     app.UseHttpsRedirection();
+
+    app.MapGet("/", () => Results.Redirect("/docs")).ExcludeFromDescription();
 
     app.MapControllers();
 

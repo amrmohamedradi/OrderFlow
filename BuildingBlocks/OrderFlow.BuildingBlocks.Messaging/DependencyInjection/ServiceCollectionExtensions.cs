@@ -24,10 +24,15 @@ public static class ServiceCollectionExtensions
 
             x.UsingRabbitMq((context, cfg) =>
             {
-                cfg.Host(options.Host, h =>
+                cfg.Host(options.Host, options.Port, options.VirtualHost, h =>
                 {
                     h.Username(options.Username);
                     h.Password(options.Password);
+
+                    if (options.UseSsl)
+                    {
+                        h.UseSsl(s => s.Protocol = System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls13);
+                    }
                 });
 
                 cfg.UsePublishFilter(typeof(CorrelationIdPublishFilter<>), context);
